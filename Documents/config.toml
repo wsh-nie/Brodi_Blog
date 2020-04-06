@@ -6,3 +6,6 @@ theme = "hyde"
 [params]
 description = "精通细节是理解更深和更基本概念的先决条件"
 copyright = "Copyright (c) 2020 wsh.nie"
+
+[markup.goldmark.renderer]
+unsafe= true

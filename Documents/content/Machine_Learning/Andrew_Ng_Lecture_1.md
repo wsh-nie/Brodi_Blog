@@ -61,52 +61,7 @@ description: "第一周学习内容：什么是机器学习？机器学习的分
 
 
 
-
-```mermaid
-graph TD
-A[方形] --> B(圆角)
-    B --> C{条件a}
-    C --> |a=1| D[结果1]
-    C --> |a=2| E[结果2]
-    F[竖向流程图]
-```
-
-$$
-\mathbf{V}_1 \times \mathbf{V}_2 =  
-\begin{vmatrix} 
-\mathbf{i} \\\\\\
-\frac{\partial X}{\partial u} \\\\\\
-\frac{\partial X}{\partial v} 
-\end{vmatrix} 
-$$
-
-
-```flow
-st1=>start: Training Set
-st2=>input: X
-op1=>operation: Learning Algroithm
-op2=>operation: h
-e=>output: Y
-st1->op1->op2
-st2->op2->e
-```
-```flow
-st=>start: 开始框
-op=>operation: 处理框
-cond=>condition: 判断框(是或否?)
-sub1=>subroutine: 子流程
-io=>inputoutput: 输入输出框
-e=>end: 结束框
-st->op->cond
-cond(yes)->io->e
-cond(no)->sub1(right)->op
-```
-```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
+<div class="mermaid">
+    graph LR
+    id1[This is the text in the box]
+</div>
