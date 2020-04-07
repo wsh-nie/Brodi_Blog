@@ -52,7 +52,7 @@ description: "第一周学习内容：什么是机器学习？机器学习的分
 
 ## 回归算法
 
-监督式学习算法中能对每个数据样例，能够给出确定的回答。能够预测**实际数值**的称之为回归。  
+监督式学习算法中能对每个数据样例，能够给出确定的回答。能够预测**准确数值**`real-value`的称之为回归，预测**离散值**`discrete-value`的称之为分类.  
 
 对于一个训练数集，有如下概念：  
 **m** = ·`Number of training examples`  训练集大小  
@@ -60,8 +60,87 @@ description: "第一周学习内容：什么是机器学习？机器学习的分
 **y** ’s = `"output" variable/"target" variable` 输出变量或目标变量  
 
 
-
+机器学习算法的流程如下，先通过对训练集的学习获得假设函数`hypothesis`，然后通过假设函数来获得需要的值。  
 <div class="mermaid">
-    graph LR
-    id1[This is the text in the box]
+    graph TB
+        subgraph 流程
+        I(Input) --> H([Hypothesis])
+        H([Hypothesis]) --> O(Output)
+            subgraph 学习获得函数h
+            D[Training Set] --> H([Hypothesis])
+            end
+        end
 </div>
+  
+# 模型表示——一元线性回归
+
+## 模型
+
+一元线性回归又称之为**单变量线性回归**，是最简单最基本的一中回归模型，其训练的数据集中含有两个变量，即`x`和`y`均只有一个变量。  
+
+所以其能够建立的模型函数为：
+$$
+h_\theta (x) = \theta_0 + \theta_1 x
+$$
+
+我们的目标就是选择合适的`$\theta_0$`和`$\theta_1$`来使得`$h_\theta$`接近于训练集中样例中的`$y$`
+
+## 代价函数
+
+代价函数是用于评判模型合理性的一个指标，代价函数值越小表示训练集获得假设函数用于对我们给出的`x`参数估计`y`值时越精确。  
+
+对于一元线性回归模型，我们的代价函数可以表示为如下：  
+
+$$
+J(\theta_0,\theta_1) = \frac{1}{2m} \sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})^{2} = \frac{1}{2m} \sum_{i=1}^{m}((\theta_0+\theta_1 x) - y^{(i)})^{2}
+$$
+
+其中，`$(x^{(i)},y^{(i)})$`是训练集中的样例，`$J(\theta_0,\theta_1)$`就是对模型中两个参数进行评价的代价函数。  
+
+我们的**目标**就是让代价函数最小化：`$minimize \  J(\theta_0,\theta_1)$`  
+
+
+# 梯度下降算法
+
+当我们通过不同的`$\theta_0$`和`$\theta_1$`获得大量的代价函数`$J(\theta_0,\theta_1)$`，我们该如何找到最小的代价函数呢？  
+
+梯度下降算法就是用于解决这个问题  
+## 算法介绍
+梯度下降算法的大体流程如下：  
+> 选择某些`$\theta_0$`和`$\theta_1$`开始，通过不断地改变`$\theta_0$`和`$\theta_1$`的值来减小代价函数`$J(\theta_0,\theta_1)$`的值，直到我们找到最小值。  
+
+用伪代码描述为：
+> repeat until convergence{  
+>    `$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0,\theta_1) $`  (for j = 0 and j = 1)  
+> }  
+
+其中`$\alpha$`我们称之为学习速率`learning rate`
+
+这里需要**特别注意**的是，`$\theta_0$`和`$\theta_1$`两个变量是更新是需要**同步**`simultaneously`的，如下：  
+
+> `$temp0 := \theta_0 - \alpha \frac{\partial}{\partial \theta_0} J(\theta_0,\theta_1) $`  
+> `$temp1 := \theta_1 - \alpha \frac{\partial}{\partial \theta_1} J(\theta_0,\theta_1) $`  
+> `$\theta_0 := temp0$`  
+> `$\theta_1 := temp1$`  
+
+## 梯度下降算法应用于线性回归
+
+计算两个偏导数：  
+$$
+\frac {\partial}{\partial \theta_0} J(\theta_0,\theta_1) = \frac {1}{m} \sum_{i=1}^{m} (h_{\theta}(x^{i}) - y^{i})  \\\\\\
+\frac {\partial}{\partial \theta_1} J(\theta_0,\theta_1) = \frac {1}{m} \sum_{i=1}^{m} (h_{\theta}(x^{i}) - y^{i}) \cdot x^{i}  
+$$
+
+所以，在一元线性回归问题中，梯度下降算法伪代码如下：  
+> repeat until convergence{  
+>    `$\theta_0 := \theta_j - \alpha \frac {1}{m} \sum_{i=1}^{m} (h_{\theta}(x^{i}) - y^{i}) $`  
+>    `$\theta_1 := \theta_j - \alpha \frac {1}{m} \sum_{i=1}^{m} (h_{\theta}(x^{i}) - y^{i}) \cdot x^{i} $`  
+> } 
+
+由上可知，当偏导数(即梯度)为`0`时，我们的循环即终止。  
+
+两个参数每次的改变大小与`$\alpha$`相关，而且当`$\alpha$`**太小**，梯度下降会太慢，而当`$\alpha$`**太大**时，则梯度下降会超过最小值，它可能无法收敛，甚至发散  
+
+由于梯度下降算法实际上是由于梯度为`0`而收敛的，当我们的代价函数具有多个驻点时，梯度下降算法只能求得局部最优解`local optima`  
+
+此外，每次执行算法中不需要修改`$\alpha$`的值，梯度下降算法能够收敛于局部最优解。当我们接近局部最小值时，梯度下降将自动采取较小的步骤
