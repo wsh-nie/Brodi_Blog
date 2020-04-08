@@ -1,5 +1,5 @@
 baseURL = "http://example.org/"
-languageCode = "en-us"
+languageCode = "zh-CN"
 title = "次人之欢"
 theme = "hyde"
 
