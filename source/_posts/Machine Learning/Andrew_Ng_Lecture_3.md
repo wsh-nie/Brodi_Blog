@@ -151,6 +151,12 @@ $$
 \frac {\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^{m} (h_{\theta}(x^{(i)}) - y^{(i)})x_j^{(i)}
 $$ 
 
+记$h = sigmoid(X\theta) = \frac{1}{1+e^{X\theta}}$，同样可用线性代数简化表示偏导数：
+
+$$
+\frac {\partial}{\partial \theta} J(\theta) = \frac{1}{m} X^T  (h-y) 
+$$
+
 所以，对应的梯度下降算法为：
 
 $$\begin{aligned}
