@@ -35,7 +35,7 @@ $$
 假设函数定义为$h_{\Theta}(x)$，其中$h_{\Theta}(x) \in \Re^k$，$h_{\Theta}(x)_i$表示第i个输出。
 
 $$
-J(\Theta) = -\frac{1}{m} [ \sum_{i=1}^{m} \sum_{k=1}^{K} y_{k}^{(i)} \cdot log(h_\Theta(x^{(i)}))_k +(1-y^{(i)}_k) \cdot log(1-(h_\Theta(x^{(i)}))_k)]
+J(\Theta) = -\frac{1}{m} \bigg [ \sum_{i=1}^{m} \sum_{k=1}^{K} y_{k}^{(i)} \cdot log(h_\Theta(x^{(i)}))_k +(1-y^{(i)}_k) \cdot log(1-(h_\Theta(x^{(i)}))_k) \bigg ]
 $$
 
 $$
@@ -72,7 +72,7 @@ $$
 $$
 
 $$\begin{aligned}
-\frac{\partial J}{\partial a_j^{(L)}} &= (-1) \times [ y_j \cdot \frac{1}{a_j^{(L)}} + (1-y_j) \cdot \frac{-1}{1-a_j^{(L)}} ] = \frac{a_j^{(L)} - y_j }{a_j^{(L)} \cdot (1-a_j^{(L)}) }\\\\\\
+\frac{\partial J}{\partial a_j^{(L)}} &= (-1) \times \bigg [ y_j \cdot \frac{1}{a_j^{(L)}} + (1-y_j) \cdot \frac{-1}{1-a_j^{(L)}} \bigg ] = \frac{a_j^{(L)} - y_j }{a_j^{(L)} \cdot (1-a_j^{(L)}) }\\\\\\
 g'(z_j^{(L)}) &=g(z_j^{L})\cdot(1-g(z_j^{(L)})) = a_j^{(L)} \cdot (1-a_j^{(L)}) \\\\\\
 \therefore \delta_j^{(L)} &= a_j^{(L)} - y_j
 \end{aligned}
