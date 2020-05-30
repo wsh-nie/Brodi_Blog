@@ -154,8 +154,62 @@ $$
 
 其中，$\lambda$称为拉格朗日乘子，且原约束优化问题转化为对拉格朗日函数$L(x,\lambda)$的无约束优化问题。即，分别对参数求偏导，令偏导数为$0$即可进行求解。
 
+需要注意的是拉格朗日乘子求的解不一定是最优解，其实只是局部最优解，这里称作可行解，只有在凸函数中才能保证最优解。
+
 ## 不等式约束
 
+对于不等式条件$g(x) \leq 0$的情况有两种：即可行解在$g(x)<0$或者$g(x)=0$区域内取得。
+
+在$g(x) \lt 0$内，这时约束条件不起作用。只需要直接对目标函数进行最小化，找在$g(x) \lt 0$的可行解$x^{\*}$，所以有：
+
+$$
+\begin{array}{l}
+\nabla f(x^{\*}) =0; \\\\\\
+\lambda = 0; \\\\\\
+g(x^{\*}) \lt 0
+\end{array} \tag {11}
+$$
+
+在$g(x) = 0$上，类似于上面等式约束的分析，但需要注意的是，此时$\nabla f(x^{\*})$的方向与$\nabla g(x^{\*})$相反，即存在$\lambda \neq 0$，有$\nabla f(x^{\*}) = - \lambda g(x^{\*})$。
+
+
+整合条件有：
+
+$$
+\begin{array}{l}
+g(x) \leq 0 \\\\\\
+\lambda \geq 0 \\\\\\
+\lambda g(x) = 0
+\end{array} \tag{12}
+$$
+
+(12)式即拉格朗日函数的**`KKT`条件**
+
+以上可以进行推广，考虑具有$m$个等式约束和$n$个不等式约束的非空优化问题：
+
+$$
+\begin{array}{ll} 
+\underset{x} {min }  & f(x)  \\\\\\
+\text{s.t.  }  & h_i(x) = 0 \text{  } (i=1,\cdots,m) \\\\\\
+ & g_i(x) \leq 0 \text{  } (j=1,\cdots,n)
+\end{array} \tag {13}
+$$
+
+引入拉格朗日乘子$\lambda=(\lambda_1,\cdots,\lambda_m)^T$和$\mu = (\mu_1,\cdots,\mu_n)^T$，相应的拉格朗日函数为：
+
+$$
+L(x,\lambda,\mu) = f(x) + \sum_{i=1}^{m} \lambda_i h_i(x) + \sum_{j=1}^{n} \mu_j g_i(x) \tag {14}
+$$
+
+由不等式约束引入的`KKT`条件($j=1,\cdots,n$)为：
+
+$$
+\begin{array}{l}
+g_j(x) \leq 0 \\\\\\
+\mu_j \geq 0 \\\\\\
+\mu_j g_j(x) = 0
+\end{array} \tag{15}
+$$
 
 
 ## 对偶问题
