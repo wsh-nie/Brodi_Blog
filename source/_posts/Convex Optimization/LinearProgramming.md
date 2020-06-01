@@ -146,7 +146,7 @@ $$
 \nabla f(x^{\*}) + \lambda \nabla g(x^{\*}) = 0 \tag {9}
 $$
 
-对(9)求原函数记得拉格朗日函数：
+对(9)求原函数得拉格朗日函数：
 
 $$
 L(x,\lambda) = f(x) + \lambda g(x) \tag {10}
@@ -198,7 +198,7 @@ $$
 引入拉格朗日乘子$\lambda=(\lambda_1,\cdots,\lambda_m)^T$和$\mu = (\mu_1,\cdots,\mu_n)^T$，相应的拉格朗日函数为：
 
 $$
-L(x,\lambda,\mu) = f(x) + \sum_{i=1}^{m} \lambda_i h_i(x) + \sum_{j=1}^{n} \mu_j g_i(x) \tag {14}
+L(x,\lambda,\mu) = f(x) + \sum_{i=1}^{m} \lambda_i h_i(x) + \sum_{j=1}^{n} \mu_j g_j(x) \tag {14}
 $$
 
 由不等式约束引入的`KKT`条件($j=1,\cdots,n$)为：
@@ -213,3 +213,182 @@ $$
 
 
 ## 对偶问题
+
+一个优化问题可以从两个角度来考察，即主问题(`Primal problem`)和对偶问题(`Dual problem`)。对主问题(13)，基于式(14)，其拉格朗日的对偶函数(`Dual Function`)$\Gamma : R^m \times R^n \rightarrow R$定义如下：
+
+$$
+\begin{align}
+\Gamma (\lambda,\mu) &= \underset{x \in D}{inf } \text{ } L(x,\lambda,\mu) \\\\\\
+&= \underset{x \in D}{inf} \text{ } \bigg( f(x) + \sum_{i=1}^{m}\lambda_i h_{i}(x) + \sum_{j=1}^{n}\mu_j g_j(x) \bigg)
+\end{align} \tag{16}
+$$
+
+由`KKT`条件可知：
+
+$$
+\sum_{i=1}^{m}\lambda_i h_{i}(x) + \sum_{j=1}^{n}\mu_j g_j(x) \leq 0 \tag{17}
+$$
+
+进而有
+
+$$
+\Gamma(\lambda,\mu) = \underset{x \in D}{inf} \text{ } L(x,\lambda,\mu) \leq L(x^{\*},\lambda,\mu) \leq f(x^{\*}) \tag{18}
+$$
+
+即对偶函数给出了主问题最优值的下界。显然，主问题的下界取决于$\lambda$和$\mu$的值。于是问题就变成了：基于对偶函数能获得的最好下界是什么？即主问题(13)的对偶问题就成了(19)：
+
+$$
+\begin{array}{ll}
+\underset{\lambda,\mu}{max} & \Gamma (\lambda,\mu) \\\\\\
+s.t. & \mu \geq 0 
+\end{array}\tag{19}
+$$
+
+## 对偶问题的性质
+
+记主问题为：
+
+$$
+\begin{array}{ll}
+min & c^T x \\\\\\
+s.t. & Ax \leq b,x \geq 0
+\end{array}\tag{20}
+$$
+
+下面使用拉格朗日乘子法求它的对偶问题。
+
+引入拉格朗日乘子$y = (y_1,\cdots,y_m)^T$，相应的拉格朗日函数为：
+
+$$
+L(x,y) = c^Tx + y^T (Ax - b) \tag{21} 
+$$
+
+拉格朗日函数对$x$求偏导，并令偏导为0，得：
+
+$$
+\frac{\partial L}{\partial x} = c + A^Ty = 0  \Rightarrow c = - A^T y \tag{22}
+$$
+
+将(22)代入(21)得：
+
+$$
+\Gamma (y) = \text {inf } L(x,y) = - y^TAx + y^T(Ax - b) = y^T b = b^T y \tag{23}
+$$
+
+由(21)得`KKT`条件可知：
+
+$$
+\begin{array}{l}
+y \geq 0 \\\\\\
+c - A^Ty \geq 0 \Rightarrow A^T y \leq c
+\end{array} \tag{24}
+$$
+
+由(18)可知，对偶问题为：
+
+$$
+\begin{array}{ll}
+max & b^T y \\\\\\
+s.t. & A^Ty \leq c,y \geq 0
+\end{array}\tag{25}
+$$
+
+不太严谨地说，对偶问题可悲看作是原始问题的**行列转置**：
+
+1. 原始问题中的第i行j列系数与其对偶问题中的第j行i列的系数相同；
+2. 原始目标函数的各个系数行与其对偶问题右侧的各常系数列相同；
+3. 原始问题右侧的各常熟列与其对偶目标函数的各个系数行相同；
+4. 在这一对问题中，不等式方向和优化方向相反。
+
+此外，关于对偶问题还有如下基本性质：
+
+1. 对称性：对偶问题的对偶是原问题；
+2. 弱对偶性：若$x^{\*}$是原问题的可行解，$y^{\*}$是对偶问题的可行解，则存在$c^T x \leq b^T y$；
+3. 无界性：若原问题(对偶问题)为无界解，则其对偶问题(原问题)无可行解；
+4. 可行解是最优解时的性质：当$x^{\*}$是原问题的可行解，$y^{\*}$是对偶问题的可行解，当$c^T x^{\*} = b^T y^{\*}$时，$x^{\*},y^{\*}$是最优解；
+5. 对偶定理：若原问题有最优解，那么对偶问题也有最优解，且目标函数值相同；
+6. 互补松弛性：若$x^{\*},y^{\*}$分别是原问题和对偶问题的最优解，则$y^{\*T} (Ax^{\*} - b) = 0, x^{\*T} (A^Ty^{\*} - c) = 0$
+
+## 对偶问题性质的应用
+
+有如下线性规划问题：
+
+$$
+\begin{array}{ll}
+min & f(x) = 2x_1 + 3x_2 + 5x_3 + 2x_4 + 3x_5 \\\\\\
+s.t. & x_1 + x_2 + 2x_3 + x_4 + 3x_5 \geq 4 \\\\\\
+ & 2x_1 - x_2 + 3x_3 +x_4 + x_5 \geq 3 \\\\\\
+ & x_j \geq 0, \text{  } j=1,2,\cdots,5
+\end{array}
+$$
+
+已知其对偶问题的最优解为$y_1^{\*} = \frac{4}{5},y_2^{\*} = \frac{3}{5},\Gamma = 5$，试用对偶理论找出原问题的最优解。
+
+由对偶定理，主问题的最优解$f(x^{\*}) = 5$。
+
+由互补松弛性可知：
+
+$$
+\begin{bmatrix}
+\frac{4}{5} & \frac{3}{5}
+\end{bmatrix} * (
+\begin{bmatrix}
+1 & 1 & 2 & 1 & 3 \\\\\\
+2 & -1 & 3 & 1 & 1
+\end{bmatrix} *
+\begin{bmatrix}
+x_1^{\*} \\\\\\
+x_2^{\*} \\\\\\
+x_3^{\*} \\\\\\
+x_4^{\*} \\\\\\
+x_5^{\*}
+\end{bmatrix}  -
+\begin{bmatrix}
+4 \\\\\\
+3
+\end{bmatrix}
+ ) = 0  \tag{a}
+$$
+
+$$
+\begin{bmatrix}
+x_1^{\*} & x_2^{\*} & x_3^{\*} & x_4^{\*} & x_5^{\*}
+\end{bmatrix} * (
+\begin{bmatrix}
+1 & 2 \\\\\\
+1 & -1 \\\\\\
+2 & 3 \\\\\\
+1 & 1 \\\\\\
+3 & 1
+\end{bmatrix} *
+\begin{bmatrix}
+\frac{4}{5} \\\\\\
+\frac{3}{5}
+\end{bmatrix}  -
+\begin{bmatrix}
+2 \\\\\\
+3 \\\\\\
+5 \\\\\\
+2 \\\\\\
+3
+\end{bmatrix}
+ ) = 0 \tag{b}
+$$
+
+由$(b)$得$x_2^{\*} = x_3^{\*} = x_4^{\*} = 0$，代入$(a)$中得
+
+$$
+\begin{array}{l}
+x_1^{\*} + 3x_5^{\*} = 4 \\\\\\
+2x_1^{\*} + x_5^{\*} = 3
+\end{array}
+$$
+
+解得:
+
+$$
+x^{\*} = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 1
+\end{bmatrix}^T
+$$
