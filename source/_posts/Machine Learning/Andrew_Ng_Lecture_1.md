@@ -68,17 +68,6 @@ mathjax: true
 
 
 机器学习算法的流程如下，先通过对训练集的学习获得假设函数`hypothesis`，然后通过假设函数来获得需要的值。  
-
-<div class="mermaid">
-    graph TB
-        subgraph 流程
-        I(Input) --> H([Hypothesis])
-        H([Hypothesis]) --> O(Output)
-            subgraph 学习获得函数h
-            D[Training Set] --> H([Hypothesis])
-            end
-        end
-</div>
   
 # 模型表示——一元线性回归
 
