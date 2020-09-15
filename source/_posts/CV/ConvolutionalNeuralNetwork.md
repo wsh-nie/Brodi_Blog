@@ -3,7 +3,7 @@ layout: post
 title: "卷积神经网络"
 date: 2020-09-14 19:36:26
 draft: false
-description: "卷积、图像去噪、边缘提取、纹理表示、卷积神经网络"
+description: "卷积、图像去噪、边缘提取"
 tags: 
 - CV
 - AI
@@ -111,3 +111,103 @@ $$
 ![中值滤波器](/images/CV/ConvolutionalNeuralNetwork_1.png)
 
 高斯卷积核是线性操作，中值滤波器不是线性操作。
+
+## 卷积与边缘提取
+
+### 边缘
+
+边缘：图像中亮度明显而急剧变化的点
+
+为什么要研究边缘？  
+编码图像中的语义与形状信息  
+相对于图像表示，边缘表示显然更加紧凑
+
+边缘的种类：
+
+![边缘的种类](/images/CV/ConvolutionalNeuralNetwork_2.png)
+
+### 边缘检测
+
+![边缘的检测](/images/CV/ConvolutionalNeuralNetwork_3.png)
+
+检测边缘需要用到图像的导数。
+
+图像求导公式：$\epsilon = 1$
+
+$$
+\frac{\partial f(x, y)}{\partial x} \approx \frac{f(x + 1, y) - f(x, y)}{1}
+$$
+
+使用卷积核则可表示为：
+
+$$
+\frac{\partial f(x, y)}{\partial x} \Rightarrow \begin{bmatrix} -1 & 1 \end{bmatrix}
+$$
+$$
+\frac{\partial f(x, y)}{\partial y} \Rightarrow \begin{bmatrix} -1 \\\\\\ 1 \end{bmatrix} or \begin{bmatrix} 1 \\\\\\ -1 \end{bmatrix}
+$$
+
+### 图像的梯度
+
+梯度指向灰度变换最快的方向，即两个方向的导数向量。
+
+$$
+\nabla f = \begin{bmatrix} \frac{\partial f}{\partial x}& \frac{\partial f}{\partial y} \end{bmatrix}  
+$$
+
+梯度的模：
+
+$$
+|| \nabla f || = \sqrt{(\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2}
+$$
+
+梯度的模越大，是边缘的概率越大
+
+![边缘检测样例](/images/CV/ConvolutionalNeuralNetwork_4.png)
+
+### 噪声的影响
+
+噪声导致图像的导数极大值过多，不能表示边缘。
+
+故需要先去噪使得图像平滑，再对去噪后的信号求导。
+
+对于一个具有高斯噪声的图像，由于降噪和微分都是卷积，而卷积具备结合性，故：
+
+$$
+\frac{d}{d x}(f * g) = f * \frac{d}{dx}g
+$$
+
+![高斯一阶偏导卷积核](/images/CV/ConvolutionalNeuralNetwork_5.png)
+
+方差小，边缘更细腻。
+
+### 高斯核 VS. 高斯一阶偏导核
+
+高斯核：
+
+消除高频成分(低通滤波器)  
+卷积核中的权值不可为复数  
+权值总和为1(恒定区域不受卷积影响)
+
+高斯一阶偏导核：
+
+高斯的导数  
+卷积核中的权值可以是负数  
+权值总和是0(恒定区域无响应)  
+高对比度点的响应值大
+
+### 非最大值抑制
+
+高斯操作边缘提取遇到平滑变化的图像，边缘不明显。
+
+对于图像的非0点p，沿着**梯度方向**，如果p点的梯度强度比前后点的梯度强度大，则保留；否则删除。
+
+![非最大值抑制](/images/CV/ConvolutionalNeuralNetwork_6.png)
+
+q,r点可能不在像素点，则用周围点加权求和。
+
+### Canny边缘检测器
+
+![梯度门限问题](/images/CV/ConvolutionalNeuralNetwork_7.png)
+
+采用双阈值，先用高阈值，然后再用低阈值，当低阈值的边链接两个高阈值的边，则保留。
