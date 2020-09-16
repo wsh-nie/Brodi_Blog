@@ -211,3 +211,123 @@ q,r点可能不在像素点，则用周围点加权求和。
 ![梯度门限问题](/images/CV/ConvolutionalNeuralNetwork_7.png)
 
 采用双阈值，先用高阈值，然后再用低阈值，当低阈值的边链接两个高阈值的边，则保留。
+
+## 纹理表示
+
+分为规则纹理和随机纹理。
+
+### 基于卷积核组的纹理表示方法
+
+思路：  
+利用卷积核提取图像中的纹理基；  
+利用基元的统计信息来表示图像中的纹理
+
+卷积核组：
+
+![卷积核组](/images/CV/ConvolutionalNeuralNetwork_8.png)
+
+多个不同角度的高斯一阶偏导核组合而成。前6个检测是否存在边缘以及边缘的方向，后一个检测是否存在斑状基元。
+
+经过卷积核组卷积后的数据连接成一个更高维度的向量，然后作为输入进入学习模型。
+
+$$
+\begin{bmatrix}
+\vec r_1 & \vec r_2 & \cdots & \vec r_n
+\end{bmatrix}
+$$
+
+### 纹理分类任务
+
+忽略基元的位置，更多关注出现了哪种基元对应的纹理以及基元出现的频率。基元出现的位置对分类任务无影响，比如半点出现在图像的左上角或右下角不能影响图像的分类。
+
+故对纹理的表示需要采取不同的方式：  
+对于每一个高斯一阶偏导核卷积的图像，利用其平均值作为纹理表示的一个维度，则纹理表示的维度与高斯一阶偏导核的个数相等。每一维度的值可以代表该方向的纹理类别和数量。
+
+$$
+\begin{bmatrix}
+\bar r_1 & \bar r_2 & \cdots & \bar r_n
+\end{bmatrix}
+$$
+
+![分类任务识别](/images/CV/ConvolutionalNeuralNetwork_9.png)
+
+### 卷积核组设计
+
+设计重点：
+
+卷积核类型(边缘、条形以及点状)  
+不同卷积核能识别不同纹理
+
+卷积核尺度(3-6个尺度)  
+不同尺度识别的纹理的细腻程度不同，尺度越小识别的纹理越细腻
+
+卷积核方向(6个角度)  
+角度不同识别的纹理方向也不同
+
+![卷积核组设计](/images/CV/ConvolutionalNeuralNetwork_10.png)
+
+## 卷积神经网络
+
+### 全连接神经网络的瓶颈
+
+当图越大，神经元的维度越大，计算量越大
+
+全连接神经网络仅适合处理小图像，或者是卷积核操作后的纹理类别表示向量。卷积神经网络就是后面这种方式，把卷积和全连接神经网络结合起来。
+
+### 卷积神经网络
+
+![卷积神经网络](/images/CV/ConvolutionalNeuralNetwork_11.png)
+
+卷积核：  
+不仅具有宽和高还有深度，常写成：$宽度 \times 高度 \times 深度$  
+卷积核参数不仅包括核中存储的权值，还包括一个偏置值。
+
+![卷积网络中的卷积操作](/images/CV/ConvolutionalNeuralNetwork_12.png)
+
+卷积层：
+
+![卷积层](/images/CV/ConvolutionalNeuralNetwork_13.png)
+
+卷积步长：
+
+![卷积步长](/images/CV/ConvolutionalNeuralNetwork_14.png)
+
+边界填充：
+
+![边界填充](/images/CV/ConvolutionalNeuralNetwork_15.png)
+
+特征响应组尺寸计算：
+
+![特征响应组尺寸计算](/images/CV/ConvolutionalNeuralNetwork_16.png)
+
+### 池化层
+
+池化操作：
+
+![池化操作](/images/CV/ConvolutionalNeuralNetwork_17.png)
+
+池化操作示例：
+
+![池化操作示例](/images/CV/ConvolutionalNeuralNetwork_18.png)
+
+### 图像增强
+
+为什么需要图像增强
+
+![为什么需要图像增强](/images/CV/ConvolutionalNeuralNetwork_19.png)
+
+翻转：
+
+![翻转](/images/CV/ConvolutionalNeuralNetwork_20.png)
+
+随即缩放&抠图：
+
+![随即缩放&抠图](/images/CV/ConvolutionalNeuralNetwork_21.png)
+
+色彩抖动：
+
+![色彩抖动](/images/CV/ConvolutionalNeuralNetwork_22.png)
+
+其他办法：
+
+![其他](/images/CV/ConvolutionalNeuralNetwork_23.png)
