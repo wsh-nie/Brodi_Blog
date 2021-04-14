@@ -1,14 +1,15 @@
 ---
-title: "BTC-密码学原理"
-date: 2020-05-23 08:37:39
+title: BTC-密码学原理
 draft: false
-description: "比特币的相关密码学原理"
-tags: 
-- courses notes
-- block chain
-categories: 
-- block chain
+description: 比特币的相关密码学原理
+tags:
+  - courses notes
+  - block chain
+categories:
+  - block chain
 mathjax: true
+abbrlink: 9ec7f0ee
+date: 2020-05-23 08:37:39
 ---
 
 比特币又称加密货币(`crypto-currency`)，实际上比特币的每个操作都是公开的。

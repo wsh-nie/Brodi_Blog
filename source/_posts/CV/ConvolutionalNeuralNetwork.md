@@ -1,15 +1,16 @@
 ---
 layout: post
-title: "卷积神经网络"
-date: 2020-09-14 19:36:26
+title: 卷积神经网络
 draft: false
-description: "卷积、图像去噪、边缘提取"
-tags: 
-- CV
-- AI
-categories: 
-- CV
+description: 卷积、图像去噪、边缘提取
+tags:
+  - CV
+  - AI
+categories:
+  - CV
 mathjax: true
+abbrlink: c6767314
+date: 2020-09-14 19:36:26
 ---
 
 ## 卷积与图像去噪

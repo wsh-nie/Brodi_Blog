@@ -1,14 +1,15 @@
 ---
-title: "非线性规划"
-date: 2020-06-16 16:04:28
+title: 非线性规划
 draft: false
-description: "非线性规划；"
-tags: 
-- Convex Optimization
-- Algorithm
-categories: 
-- Algorithm
+description: 非线性规划；
+tags:
+  - Convex Optimization
+  - Algorithm
+categories:
+  - Algorithm
 mathjax: true
+abbrlink: 6f3e0892
+date: 2020-06-16 16:04:28
 ---
 
 # 非线性规划

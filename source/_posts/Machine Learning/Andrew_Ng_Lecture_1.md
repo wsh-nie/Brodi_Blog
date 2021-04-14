@@ -1,14 +1,15 @@
 ---
-title: "吴恩达·机器学习课程（一）"
-date: 2020-04-04T08:03:02+08:00
+title: 吴恩达·机器学习课程（一）
 draft: false
-description: "第一周学习内容：什么是机器学习？机器学习的分类，以及梯度下降算法"
-tags: 
-- courses notes
-- machine learning
-categories: 
-- machine learning
+description: 第一周学习内容：什么是机器学习？机器学习的分类，以及梯度下降算法
+tags:
+  - courses notes
+  - machine learning
+categories:
+  - machine learning
 mathjax: true
+abbrlink: e7e94cdb
+date: 2020-04-04 00:03:02
 ---
 
 # 什么是机器学习

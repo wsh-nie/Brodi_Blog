@@ -1,14 +1,15 @@
 ---
-title: "线性规划"
-date: 2020-05-29 18:54:30
+title: 线性规划
 draft: false
-description: "线性规划；运输问题-表上作业法；指派问题——匈牙利算法；拉格朗日算法与对偶问题；"
-tags: 
-- Convex Optimization
-- Algorithm
-categories: 
-- Algorithm
+description: 线性规划；运输问题-表上作业法；指派问题——匈牙利算法；拉格朗日算法与对偶问题；
+tags:
+  - Convex Optimization
+  - Algorithm
+categories:
+  - Algorithm
 mathjax: true
+abbrlink: '5434385'
+date: 2020-05-29 18:54:30
 ---
 
 # 线性规划

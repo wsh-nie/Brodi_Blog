@@ -1,15 +1,16 @@
 ---
 layout: post
-title: "全连接神经网络"
-date: 2020-09-13 08:38:18
+title: 全连接神经网络
 draft: false
-description: ""
-tags: 
-- CV
-- AI
-categories: 
-- CV
+description: ''
+tags:
+  - CV
+  - AI
+categories:
+  - CV
 mathjax: true
+abbrlink: fd2893d1
+date: 2020-09-13 08:38:18
 ---
 
 ## 图像表示

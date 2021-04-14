@@ -1,15 +1,16 @@
 ---
 layout: post
-title: "吴恩达·机器学习课程（四）"
-date: 2020-04-18 00:46:37
+title: 吴恩达·机器学习课程（四）
 draft: false
-description: "第四周学习内容：神经网络简述与样例介绍"
-tags: 
-- courses notes
-- machine learning
-categories: 
-- machine learning
+description: 第四周学习内容：神经网络简述与样例介绍
+tags:
+  - courses notes
+  - machine learning
+categories:
+  - machine learning
 mathjax: true
+abbrlink: 2dcc1a34
+date: 2020-04-18 00:46:37
 ---
 
 # 神经网路：表示

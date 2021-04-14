@@ -1,14 +1,15 @@
 ---
-title: "吴恩达·机器学习课程（二）"
-date: 2020-04-11T20:21:17+08:00
+title: 吴恩达·机器学习课程（二）
 draft: false
-description: "第二周学习内容：多特征量线性回归，特征缩放，正则方程"
-tags: 
-- courses notes
-- machine learning
-categories: 
-- machine learning
+description: 第二周学习内容：多特征量线性回归，特征缩放，正则方程
+tags:
+  - courses notes
+  - machine learning
+categories:
+  - machine learning
 mathjax: true
+abbrlink: d7ffa003
+date: 2020-04-11 12:21:17
 ---
 
 # 多特征量线性回归

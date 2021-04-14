@@ -1,14 +1,15 @@
 ---
-title: "BTC-数据结构"
-date: 2020-05-23 09:42:39
+title: BTC-数据结构
 draft: false
-description: "比特币的数据结构"
-tags: 
-- courses notes
-- block chain
-categories: 
-- block chain
+description: 比特币的数据结构
+tags:
+  - courses notes
+  - block chain
+categories:
+  - block chain
 mathjax: true
+abbrlink: f4494088
+date: 2020-05-23 09:42:39
 ---
 
 # Hash Pointers

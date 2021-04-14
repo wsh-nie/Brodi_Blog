@@ -1,14 +1,15 @@
 ---
-title: "吴恩达·机器学习课程（六）"
-date: 2020-04-30 21:47:39
+title: 吴恩达·机器学习课程（六）
 draft: false
-description: "第六周学习内容：机器学习系统的设计"
-tags: 
-- courses notes
-- machine learning
-categories: 
-- machine learning
+description: 第六周学习内容：机器学习系统的设计
+tags:
+  - courses notes
+  - machine learning
+categories:
+  - machine learning
 mathjax: true
+abbrlink: 275c94aa
+date: 2020-04-30 21:47:39
 ---
 
 # 应用机器学习的建议

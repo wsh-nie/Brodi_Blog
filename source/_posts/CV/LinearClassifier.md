@@ -1,14 +1,15 @@
 ---
-title: "线性分类器"
-date: 2020-09-11 14:06:18
+title: 线性分类器
 draft: false
-description: "图像分类，线性机器学习算法"
-tags: 
-- CV
-- AI
-categories: 
-- CV
+description: 图像分类，线性机器学习算法
+tags:
+  - CV
+  - AI
+categories:
+  - CV
 mathjax: true
+abbrlink: 81dc199e
+date: 2020-09-11 14:06:18
 ---
 
 ## 数据集介绍

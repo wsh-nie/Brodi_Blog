@@ -1,14 +1,15 @@
 ---
-title: "吴恩达·机器学习课程（五）"
-date: 2020-04-20 01:13:37
+title: 吴恩达·机器学习课程（五）
 draft: false
-description: "第五周学习内容：神经网络的学习"
-tags: 
-- courses notes
-- machine learning
-categories: 
-- machine learning
+description: 第五周学习内容：神经网络的学习
+tags:
+  - courses notes
+  - machine learning
+categories:
+  - machine learning
 mathjax: true
+abbrlink: 4252df73
+date: 2020-04-20 01:13:37
 ---
 
 # 神经网络的学习

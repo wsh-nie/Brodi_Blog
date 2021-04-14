@@ -1,14 +1,15 @@
 ---
-title: "图像分类任务介绍"
-date: 2020-09-11 09:04:16
+title: 图像分类任务介绍
 draft: false
-description: "从五个问题开始对图像分类任务进行介绍"
-tags: 
-- CV
-- AI
-categories: 
-- CV
+description: 从五个问题开始对图像分类任务进行介绍
+tags:
+  - CV
+  - AI
+categories:
+  - CV
 mathjax: true
+abbrlink: a07739eb
+date: 2020-09-11 09:04:16
 ---
 
 ## 什么是图像分类任务，它有哪些应用场合？
