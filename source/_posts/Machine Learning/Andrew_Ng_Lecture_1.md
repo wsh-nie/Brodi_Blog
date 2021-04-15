@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 吴恩达·机器学习课程（一）
 draft: false
 description: 第一周学习内容：什么是机器学习？机器学习的分类，以及梯度下降算法
