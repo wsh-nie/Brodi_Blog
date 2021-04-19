@@ -2,7 +2,7 @@
 layout: post
 title: 全连接神经网络
 draft: false
-description: ''
+description: '全连接神经网络'
 tags:
   - CV
   - AI
