@@ -4,7 +4,7 @@ title: 本地windows通过跳板机连接Linux服务器
 draft: false
 description: 配置生产环境
 tags:
-  - Config
+  - Linux
   - DL
 categories:
   - Config
