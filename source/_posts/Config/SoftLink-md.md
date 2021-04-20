@@ -23,6 +23,7 @@ Linux有两种指向文件的方式，分为：Hard Link【硬链接】，Symbol
 ## 软连接操作
 
 * 创建软连接
+
 ```
 ln -s [/SymbolicLinkFile | /SymbolicLinkFile/] [/TargetFile | /TargetFile/]
 ```
