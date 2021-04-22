@@ -23,7 +23,7 @@ win+R 打开cmd，输入指令`where ssh`，查看是否安装OpenSSH
 
 * 情景一：未安装，参考[官方文档](https://docs.microsoft.com/zh-cn/windows-server/administration/openssh/openssh_install_firstuse)安装OpenSSH
 * 情景二：只显示一个SSH路径，无碍
-* 情景三：由于之前装过git，显示超过一个ssh路径，同样参考上面的官方文档卸载ssh的客户端，注意，只要卸载客户端不需要卸载服务端，此外要保证git自带的ssh加到了环境变量Path中。我是用[scoop](/posts/61e990a2/)安装的git，所以不用管这个。至于为什么卸载win10 自带的ssh，就是自己试出来的，骂一句windows傻逼就行，毕竟你还要用git
+* 情景三：由于之前装过git，显示超过一个ssh路径，同样参考上面的官方文档卸载ssh的客户端，注意，只要卸载客户端不需要卸载服务端，此外要保证git自带的ssh加到了环境变量Path中。我是用[scoop](/posts/61e990a2/)安装的git，所以不用管这个。至于为什么卸载win10 自带的ssh，就是自己试出来的，骂一句windows傻逼就行，毕竟你还要用git【今天win10更新了，然后发现连接不了服务器，一看又给我装上了OpenSSH客户端，又得自己卸载】
 
 ## 配置SSH公钥
 
