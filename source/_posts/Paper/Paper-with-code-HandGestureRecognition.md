@@ -4,6 +4,7 @@ title: paperwithcode网站关于Hand Gesture Recognition的模型和数据集整
 description: 手势识别的文章和数据集的整理
 tags:
   - paper
+  - dataset
 catagories:
   - Deep Learning
 mathjax: true
@@ -47,7 +48,7 @@ All information comes from this [website](https://paperswithcode.com/task/hand-g
 
 * [Jester](#Jester)
 
-* [Chalearn LAP IsoGD](#Chalearn LAP IsoGD)
+* [Chalearn LAP IsoGD](#Chalearn-LAP-IsoGD)
 * [NVGesture](#NVGesture)
 
 ## ResNeXt-101
@@ -79,7 +80,7 @@ All information comes from this [website](https://paperswithcode.com/task/hand-g
 
 #### Dataset
 
-* [VIVA Hand Gesture Datasets](#VIVA Hand Gesture Datasets)
+* [VIVA Hand Gesture Datasets](#VIVA-Hand-Gesture-Datasets)
 * [EgoGesture](#EgoGesture)
 * [NVGesture](#NVGesture)
 
@@ -95,8 +96,8 @@ All information comes from this [website](https://paperswithcode.com/task/hand-g
 
 #### Dataset
 
-* [Cambridge Hand Gesture](#Cambridge Hand Gesture)
-* [Northwestern Hand Gesture](#Northwestern Hand Gesture)
+* [Cambridge Hand Gesture](#Cambridge-Hand-Gesture)
+* [Northwestern Hand Gesture](#Northwestern-Hand-Gesture)
 
 ## DG-STA
 
@@ -112,7 +113,7 @@ All information comes from this [website](https://paperswithcode.com/task/hand-g
 
 * [SHREC-2017](#SHREC-2017)
 
-* [Dynamic Hand Gesture 14-28 dataset](#Dynamic Hand Gesture 14-28 dataset)
+* [Dynamic Hand Gesture 14-28 dataset](#Dynamic-Hand-Gesture-14-28-dataset)
 
 ## F-BLSTM/F-BGRU
 
@@ -283,7 +284,7 @@ EgoGesture是用于以自我为中心的手势识别的多模式大规模数据�
 
 #### Model
 
-[Key Frames + Feature Fusion ](#Key Frames + Feature Fusion)
+[Key Frames + Feature Fusion ](#Key-Frames-+-Feature-Fusion)
 
 #### Paper
 
@@ -305,7 +306,7 @@ EgoGesture是用于以自我为中心的手势识别的多模式大规模数据�
 
 #### Model
 
-[Key Frames + Feature Fusion ](#Key Frames + Feature Fusion)
+[Key Frames + Feature Fusion ](#Key-Frames-+-Feature-Fusion)
 
 #### Paper
 
