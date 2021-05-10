@@ -11,6 +11,9 @@ catagories:
 mathjax: true
 ---
 
+根据综述文章[Recent Methods and Databases in Vision-based Hand Gesture Recognition: A Review](https://www.researchgate.net/profile/Pramod-Pisharady/publication/284070092_Recent_methods_and_databases_in_vision-based_hand_gesture_recognition_A_review/links/59db8d320f7e9b1947ef77ee/Recent-methods-and-databases-in-vision-based-hand-gesture-recognition-A-review.pdf)可知，早在12年就已经开始将深度信息用于手势识别领域，早期不使用深度信息的手势识别通常都是以照片作为输入，方法采用的都是简单的机器学习模型SVM、HMM等
+
+
 
 ## 3D Hand Shape and Pose Estimation from a Single RGB Image 【estimation】
 
